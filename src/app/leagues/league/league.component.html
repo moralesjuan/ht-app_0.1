@@ -1,0 +1,47 @@
+
+<p-card>
+
+  <div class="p-d-flex">
+    <div class="p-mr-2">
+        <h3 style="display:inline; padding: 10px;">Level: <small>{{CurrentLevel}}</small></h3>
+        <p-button type="button" icon="pi pi-angle-up" (click)="prevLevel()" styleClass="p-button-text"></p-button>
+        <p-button type="button" icon="pi pi-angle-down" (click)="nextLevel()" styleClass="p-button-text"></p-button>
+    </div>
+    <hr/>
+    <div class="p-mr-2">
+      <h4 style="display:inline; padding: 10px;">Serie: <small>{{league.series}}</small></h4>
+        <p-button type="button" icon="pi pi-angle-left" (click)="prevSerie()" styleClass="p-button-text"></p-button>
+        <p-button type="button" icon="pi pi-angle-right" (click)="nextSerie()" styleClass="p-button-text"></p-button>
+    </div>
+    <hr/>
+  </div>
+
+
+  <p-table [value]="leagueDetails" [scrollable]="true" styleClass="p-datatable-sm">
+      <ng-template pTemplate="header">
+          <tr>
+              <th>Team</th>
+              <th>Games</th>
+              <th>Points</th>
+              <th>For</th>
+              <th>Against</th>
+              <th>Difference</th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-leagueDetails>
+          <tr>
+            <td>{{leagueDetails.team.name}}</td>
+            <td>{{leagueDetails.games}}</td>
+            <td>{{leagueDetails.points}}</td>
+            <td>{{leagueDetails.for}}</td>
+            <td>{{leagueDetails.against}}</td>
+            <td>{{leagueDetails.difference}}</td>
+          </tr>
+      </ng-template>
+  </p-table>
+  
+  Body Content
+  <ng-template pTemplate="footer">
+      Footer content here
+  </ng-template>
+</p-card>
